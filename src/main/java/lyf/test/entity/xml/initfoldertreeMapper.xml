@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="lyf.test.mapper.initfoldertreeMapper" >
+  <resultMap id="BaseResultMap" type="lyf.test.entity.initfoldertree" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <id column="key_" property="key" jdbcType="VARCHAR" />
+    <result column="nameeng" property="nameeng" jdbcType="VARCHAR" />
+    <result column="namechi" property="namechi" jdbcType="VARCHAR" />
+    <result column="level" property="level" jdbcType="INTEGER" />
+    <result column="parentkeys" property="parentkeys" jdbcType="VARCHAR" />
+    <result column="childkeys" property="childkeys" jdbcType="VARCHAR" />
+    <result column="fkeyinitmodule" property="fkeyinitmodule" jdbcType="VARCHAR" />
+    <result column="extend1" property="extend1" jdbcType="VARCHAR" />
+    <result column="status_" property="status" jdbcType="INTEGER" />
+    <result column="timeadd" property="timeadd" jdbcType="TIMESTAMP" />
+    <result column="timeupdate" property="timeupdate" jdbcType="TIMESTAMP" />
+    <result column="labelids" property="labelids" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, key_, nameeng, namechi, level, parentkeys, childkeys, fkeyinitmodule, extend1, 
+    status_, timeadd, timeupdate, labelids
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="lyf.test.entity.initfoldertreeKey" >
+    select 
+    <include refid="Base_Column_List" />
+    from tg2datastore.t11_initfoldertree
+    where id = #{id,jdbcType=INTEGER}
+      and key_ = #{key,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="lyf.test.entity.initfoldertreeKey" >
+    delete from tg2datastore.t11_initfoldertree
+    where id = #{id,jdbcType=INTEGER}
+      and key_ = #{key,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="lyf.test.entity.initfoldertree" >
+    insert into tg2datastore.t11_initfoldertree (id, key_, nameeng, 
+      namechi, level, parentkeys, 
+      childkeys, fkeyinitmodule, extend1, 
+      status_, timeadd, timeupdate, 
+      labelids)
+    values (#{id,jdbcType=INTEGER}, #{key,jdbcType=VARCHAR}, #{nameeng,jdbcType=VARCHAR}, 
+      #{namechi,jdbcType=VARCHAR}, #{level,jdbcType=INTEGER}, #{parentkeys,jdbcType=VARCHAR}, 
+      #{childkeys,jdbcType=VARCHAR}, #{fkeyinitmodule,jdbcType=VARCHAR}, #{extend1,jdbcType=VARCHAR}, 
+      #{status,jdbcType=INTEGER}, #{timeadd,jdbcType=TIMESTAMP}, #{timeupdate,jdbcType=TIMESTAMP}, 
+      #{labelids,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="lyf.test.entity.initfoldertree" >
+    insert into tg2datastore.t11_initfoldertree
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="key != null" >
+        key_,
+      </if>
+      <if test="nameeng != null" >
+        nameeng,
+      </if>
+      <if test="namechi != null" >
+        namechi,
+      </if>
+      <if test="level != null" >
+        level,
+      </if>
+      <if test="parentkeys != null" >
+        parentkeys,
+      </if>
+      <if test="childkeys != null" >
+        childkeys,
+      </if>
+      <if test="fkeyinitmodule != null" >
+        fkeyinitmodule,
+      </if>
+      <if test="extend1 != null" >
+        extend1,
+      </if>
+      <if test="status != null" >
+        status_,
+      </if>
+      <if test="timeadd != null" >
+        timeadd,
+      </if>
+      <if test="timeupdate != null" >
+        timeupdate,
+      </if>
+      <if test="labelids != null" >
+        labelids,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="key != null" >
+        #{key,jdbcType=VARCHAR},
+      </if>
+      <if test="nameeng != null" >
+        #{nameeng,jdbcType=VARCHAR},
+      </if>
+      <if test="namechi != null" >
+        #{namechi,jdbcType=VARCHAR},
+      </if>
+      <if test="level != null" >
+        #{level,jdbcType=INTEGER},
+      </if>
+      <if test="parentkeys != null" >
+        #{parentkeys,jdbcType=VARCHAR},
+      </if>
+      <if test="childkeys != null" >
+        #{childkeys,jdbcType=VARCHAR},
+      </if>
+      <if test="fkeyinitmodule != null" >
+        #{fkeyinitmodule,jdbcType=VARCHAR},
+      </if>
+      <if test="extend1 != null" >
+        #{extend1,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null" >
+        #{status,jdbcType=INTEGER},
+      </if>
+      <if test="timeadd != null" >
+        #{timeadd,jdbcType=TIMESTAMP},
+      </if>
+      <if test="timeupdate != null" >
+        #{timeupdate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="labelids != null" >
+        #{labelids,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="lyf.test.entity.initfoldertree" >
+    update tg2datastore.t11_initfoldertree
+    <set >
+      <if test="nameeng != null" >
+        nameeng = #{nameeng,jdbcType=VARCHAR},
+      </if>
+      <if test="namechi != null" >
+        namechi = #{namechi,jdbcType=VARCHAR},
+      </if>
+      <if test="level != null" >
+        level = #{level,jdbcType=INTEGER},
+      </if>
+      <if test="parentkeys != null" >
+        parentkeys = #{parentkeys,jdbcType=VARCHAR},
+      </if>
+      <if test="childkeys != null" >
+        childkeys = #{childkeys,jdbcType=VARCHAR},
+      </if>
+      <if test="fkeyinitmodule != null" >
+        fkeyinitmodule = #{fkeyinitmodule,jdbcType=VARCHAR},
+      </if>
+      <if test="extend1 != null" >
+        extend1 = #{extend1,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null" >
+        status_ = #{status,jdbcType=INTEGER},
+      </if>
+      <if test="timeadd != null" >
+        timeadd = #{timeadd,jdbcType=TIMESTAMP},
+      </if>
+      <if test="timeupdate != null" >
+        timeupdate = #{timeupdate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="labelids != null" >
+        labelids = #{labelids,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+      and key_ = #{key,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="lyf.test.entity.initfoldertree" >
+    update tg2datastore.t11_initfoldertree
+    set nameeng = #{nameeng,jdbcType=VARCHAR},
+      namechi = #{namechi,jdbcType=VARCHAR},
+      level = #{level,jdbcType=INTEGER},
+      parentkeys = #{parentkeys,jdbcType=VARCHAR},
+      childkeys = #{childkeys,jdbcType=VARCHAR},
+      fkeyinitmodule = #{fkeyinitmodule,jdbcType=VARCHAR},
+      extend1 = #{extend1,jdbcType=VARCHAR},
+      status_ = #{status,jdbcType=INTEGER},
+      timeadd = #{timeadd,jdbcType=TIMESTAMP},
+      timeupdate = #{timeupdate,jdbcType=TIMESTAMP},
+      labelids = #{labelids,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+      and key_ = #{key,jdbcType=VARCHAR}
+  </update>
+</mapper>

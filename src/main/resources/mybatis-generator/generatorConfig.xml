@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration
+         PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+        "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+<generatorConfiguration>
+    <classPathEntry
+            location="/Users/lyf/Documents/eclipseWorkspaceNew/MavenRepository/Mavenjar/postgresql/postgresql/8.2-504.jdbc4/postgresql-8.2-504.jdbc4.jar"/>
+    <context id="my" targetRuntime="MyBatis3">
+        <commentGenerator>
+            <property name="suppressDate" value="false"/>
+            <!-- 是否去除自动生成的注释 true：是 ： false:否 -->  
+            <property name="suppressAllComments" value="true"/>
+        </commentGenerator>
+		<!--数据库链接URL，用户名、密码 --> 
+        <jdbcConnection driverClass="org.postgresql.Driver"
+                        connectionURL="jdbc:postgresql://10.2.3.222:5432/postgres?currentSchema=tg2datastore" userId="postgres"
+                        password="csuduc"/>
+		<!-- 生成模型的包名和位置-->  
+        <javaModelGenerator targetPackage="lyf.test.entity"
+                            targetProject="/Users/lyf/Documents/eclipseWorkspaceNew/ars/src/main/java">
+            <property name="enableSubPackages" value="true"/>
+            <property name="trimStrings" value="true"/>
+        </javaModelGenerator>
+		<!-- 生成映射文件的包名和位置-->  
+        <sqlMapGenerator targetPackage="lyf.test.entity.xml"
+                         targetProject="/Users/lyf/Documents/eclipseWorkspaceNew/ars/src/main/java">
+            <property name="enableSubPackages" value="true"/>
+        </sqlMapGenerator>
+ 		<!-- 生成DAO的包名和位置 -->  
+        <javaClientGenerator targetPackage="lyf.test.mapper"
+                             targetProject="/Users/lyf/Documents/eclipseWorkspaceNew/ars/src/main/java" type="XMLMAPPER">
+            <property name="enableSubPackages" value="true"/>
+        </javaClientGenerator>
+
+        <!--<table tableName="T_FEE_AGTBILL" domainObjectName="FeeAgentBill"
+               enableCountByExample="false" enableUpdateByExample="false"
+               enableDeleteByExample="false" enableSelectByExample="false"
+               selectByExampleQueryId="false"/>-->
+
+        <table tableName="t11_initfoldertree" domainObjectName="initfoldertree"
+               enableCountByExample="false" enableUpdateByExample="false"
+               enableDeleteByExample="false" enableSelectByExample="false"
+               selectByExampleQueryId="false">
+            <!--<columnRenamingRule searchString="^D_"
+                                replaceString=""/>-->
+        </table>
+
+    </context>
+</generatorConfiguration>
