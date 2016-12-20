@@ -59,4 +59,8 @@ public class initfoldertreecontroller {
     public String showNZWZSJC_GC(HttpServletRequest request,Model model){  
     		return "NZWZSJC_GC";  
     }
+    @RequestMapping("/login")  
+    public String showlogin(HttpServletRequest request,Model model){  
+    		return "login";  
+    }
 }

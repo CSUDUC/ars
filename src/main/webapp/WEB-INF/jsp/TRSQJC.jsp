@@ -264,16 +264,15 @@
 	    	       /*  renderingRule: colorRF,
 	    	        mosaicRule: mosaicRule, */
 	    	      });
-	    	   var map = new Map({
+	    	   	var map = new Map({
 	    	        basemap: "satellite",
 	    	        layers: [layer]
 	    	      });
-
-	    	      var view = new MapView({
+			var view = new MapView({
 	    	        container: "viewDiv",
 	    	        map: map,
 	    	        center: [108, 34],
-	    	        zoom: 9
+	    	        zoom: 4
 	    	      });
 	       });
 	</script>   
