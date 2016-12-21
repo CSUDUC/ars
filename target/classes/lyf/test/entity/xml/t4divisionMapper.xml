@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="lyf.test.mapper.t4divisionMapper" >
+  <resultMap id="BaseResultMap" type="lyf.test.entity.t4division" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <id column="divname" property="divname" jdbcType="VARCHAR" />
+    <result column="divno" property="divno" jdbcType="INTEGER" />
+    <result column="divparentname" property="divparentname" jdbcType="VARCHAR" />
+    <result column="divparentno" property="divparentno" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, divname, divno, divparentname, divparentno
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="lyf.test.entity.t4divisionKey" >
+    select 
+    <include refid="Base_Column_List" />
+    from t4division
+    where id = #{id,jdbcType=INTEGER}
+      and divname = #{divname,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="lyf.test.entity.t4divisionKey" >
+    delete from t4division
+    where id = #{id,jdbcType=INTEGER}
+      and divname = #{divname,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="lyf.test.entity.t4division" >
+    insert into t4division (id, divname, divno, 
+      divparentname, divparentno)
+    values (#{id,jdbcType=INTEGER}, #{divname,jdbcType=VARCHAR}, #{divno,jdbcType=INTEGER}, 
+      #{divparentname,jdbcType=VARCHAR}, #{divparentno,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="lyf.test.entity.t4division" >
+    insert into t4division
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="divname != null" >
+        divname,
+      </if>
+      <if test="divno != null" >
+        divno,
+      </if>
+      <if test="divparentname != null" >
+        divparentname,
+      </if>
+      <if test="divparentno != null" >
+        divparentno,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="divname != null" >
+        #{divname,jdbcType=VARCHAR},
+      </if>
+      <if test="divno != null" >
+        #{divno,jdbcType=INTEGER},
+      </if>
+      <if test="divparentname != null" >
+        #{divparentname,jdbcType=VARCHAR},
+      </if>
+      <if test="divparentno != null" >
+        #{divparentno,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="lyf.test.entity.t4division" >
+    update t4division
+    <set >
+      <if test="divno != null" >
+        divno = #{divno,jdbcType=INTEGER},
+      </if>
+      <if test="divparentname != null" >
+        divparentname = #{divparentname,jdbcType=VARCHAR},
+      </if>
+      <if test="divparentno != null" >
+        divparentno = #{divparentno,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+      and divname = #{divname,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="lyf.test.entity.t4division" >
+    update t4division
+    set divno = #{divno,jdbcType=INTEGER},
+      divparentname = #{divparentname,jdbcType=VARCHAR},
+      divparentno = #{divparentno,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+      and divname = #{divname,jdbcType=VARCHAR}
+  </update>
+</mapper>

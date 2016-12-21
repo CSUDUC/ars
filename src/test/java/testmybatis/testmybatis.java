@@ -16,9 +16,11 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;  
 
 import com.alibaba.fastjson.JSON;  
-import lyf.test.entity.initfoldertreeKey;
-import lyf.test.entity.initfoldertree;
-import lyf.test.service.IInitfoldertree;
+
+import lyf.test.entity.t1user;
+import lyf.test.entity.t1userKey;
+
+import lyf.test.service.t1userService;
  
 
 /**
@@ -32,7 +34,7 @@ public class testmybatis {
 	private static Logger logger = Logger.getLogger(testmybatis.class); 
 	private ApplicationContext ac = null;
 	@Resource  
-    private IInitfoldertree userService; 
+    private t1userService userService; 
 //  @Before  
 //  public void before() {  
 //      ac = new ClassPathXmlApplicationContext("applicationContext.xml");  
@@ -41,10 +43,11 @@ public class testmybatis {
   
     @Test  
     public void test1() {  
-    		initfoldertreeKey key = new initfoldertreeKey();
-    		key.setId(149);
-    		key.setKey("0");
-    		initfoldertree user = userService.getinitfoldertreeById(key);  
+    		t1userKey key = new t1userKey();
+    		key.setId(1);
+    		key.setUsername("liuyunfei");
+    		key.setPaswd("123");
+    		t1user user = userService.selectByPrimaryKey_Service(key);  
         // System.out.println(user.getUserName());  
         // logger.info("值："+user.getUserName());  
         logger.info(JSON.toJSONString(user));  

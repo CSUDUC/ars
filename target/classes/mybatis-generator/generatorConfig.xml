@@ -13,7 +13,7 @@
         </commentGenerator>
 		<!--数据库链接URL，用户名、密码 --> 
         <jdbcConnection driverClass="org.postgresql.Driver"
-                        connectionURL="jdbc:postgresql://10.2.3.222:5432/postgres?currentSchema=tg2datastore" userId="postgres"
+                        connectionURL="jdbc:postgresql://10.2.3.222:5432/ars?currentSchema=public" userId="postgres"
                         password="csuduc"/>
 		<!-- 生成模型的包名和位置-->  
         <javaModelGenerator targetPackage="lyf.test.entity"
@@ -37,13 +37,30 @@
                enableDeleteByExample="false" enableSelectByExample="false"
                selectByExampleQueryId="false"/>-->
 
-        <table tableName="t11_initfoldertree" domainObjectName="initfoldertree"
+        <!--table tableName="t11_initfoldertree" domainObjectName="initfoldertree"
                enableCountByExample="false" enableUpdateByExample="false"
                enableDeleteByExample="false" enableSelectByExample="false"
                selectByExampleQueryId="false">
-            <!--<columnRenamingRule searchString="^D_"
-                                replaceString=""/>-->
+        </table-->
+		<table tableName="t1user" domainObjectName="t1user"
+               enableCountByExample="false" enableUpdateByExample="false"
+               enableDeleteByExample="false" enableSelectByExample="false"
+               selectByExampleQueryId="false">
         </table>
-
+        <table tableName="t2data" domainObjectName="t2data"
+               enableCountByExample="false" enableUpdateByExample="false"
+               enableDeleteByExample="false" enableSelectByExample="false"
+               selectByExampleQueryId="false">
+        </table>
+        <table tableName="t3product" domainObjectName="t3product"
+               enableCountByExample="false" enableUpdateByExample="false"
+               enableDeleteByExample="false" enableSelectByExample="false"
+               selectByExampleQueryId="false">
+        </table>
+        <table tableName="t4division" domainObjectName="t4division"
+               enableCountByExample="false" enableUpdateByExample="false"
+               enableDeleteByExample="false" enableSelectByExample="false"
+               selectByExampleQueryId="false">
+        </table>
     </context>
 </generatorConfiguration>
