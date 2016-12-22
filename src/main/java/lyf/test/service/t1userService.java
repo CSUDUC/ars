@@ -18,4 +18,5 @@ public interface t1userService {
 	public int insertSelective_Service(t1user record);
 	public int updateByPrimaryKeySelective_Service(t1user record);
 	public t1user selectByPrimaryKey_Service(t1userKey key);
+	public t1user selectByKey_Service(t1userKey key);
 }

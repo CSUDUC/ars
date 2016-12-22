@@ -57,5 +57,14 @@ public class t1userServiceImp implements t1userService{
 		// TODO Auto-generated method stub
 		return t1userDao.selectByPrimaryKey(key);
 	}
+
+	/* (non-Javadoc)
+	 * @see lyf.test.service.t1userService#selectByKey_Service(lyf.test.entity.t1userKey)
+	 */
+	@Override
+	public t1user selectByKey_Service(t1userKey key) {
+		// TODO Auto-generated method stub
+		return t1userDao.selectByKey(key);
+	}
 	
 }

@@ -40,6 +40,8 @@
         <link rel="shortcut icon" href="favicon.ico" /> 
         
         <link rel="stylesheet" href="https://js.arcgis.com/4.1/esri/css/main.css">
+        
+        <link rel="icon" type="image/png" href="imgs/logoPic.png" sizes="32x32">
     </head>
     <!-- END HEAD -->
     
@@ -49,7 +51,7 @@
   <!-- BEGIN CONTAINER -->
         <div class="wrapper">
         		<!-- 引入导航栏 -->
-        		<jsp:include page="navi.jsp" flush="true"/> 
+        		<jsp:include page="navi1.jsp" flush="true"/> 
             <div class="container-fluid">
 	            <div class="page-content">
 	            		<div class="page-content-container">
@@ -109,6 +111,7 @@
 	require([
 	         "esri/Map",
 	         "esri/views/MapView",
+	         "esri/views/SceneView",
 	         "esri/layers/ImageryLayer",
 	         "esri/layers/support/RasterFunction",
 	         "esri/layers/support/DimensionalDefinition",
@@ -116,7 +119,7 @@
 	         "esri/core/watchUtils",
 	         "dojo/domReady!"
 	       ], function(
-	         Map, MapView, ImageryLayer,
+	         Map, MapView, SceneView,ImageryLayer,
 	         RasterFunction, DimensionalDefinition, MosaicRule, watchUtils
 	       ) {
 /*
@@ -268,12 +271,18 @@
 	    	        basemap: "satellite",
 	    	        layers: [layer]
 	    	      });
-			var view = new MapView({
+			/* var view = new MapView({
 	    	        container: "viewDiv",
 	    	        map: map,
 	    	        center: [108, 34],
 	    	        zoom: 4
-	    	      });
+	    	      }); */
+			var view = new SceneView({
+		        container: "viewDiv",
+		        map: map,
+		        scale: 50000000,
+		        center: [108, 34]
+		      });
 	       });
 	</script>   
 </html>  

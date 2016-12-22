@@ -43,13 +43,18 @@ public class testmybatis {
   
     @Test  
     public void test1() {  
-    		t1userKey key = new t1userKey();
-    		key.setId(1);
-    		key.setUsername("liuyunfei");
-    		key.setPaswd("123");
-    		t1user user = userService.selectByPrimaryKey_Service(key);  
+//    		t1userKey key = new t1userKey();
+//    		key.setId(1);
+//    		key.setUsername("liuyunfei");
+//    		key.setPaswd("123");
+//    		t1user user = userService.selectByPrimaryKey_Service(key);  
         // System.out.println(user.getUserName());  
         // logger.info("值："+user.getUserName());  
+    		t1user user=new t1user();
+    		user.setUsername("liuyunfei");
+    		user.setPaswd("123");
+    		int s = userService.insertSelective_Service(user);
+    		
         logger.info(JSON.toJSONString(user));  
     }  
 }

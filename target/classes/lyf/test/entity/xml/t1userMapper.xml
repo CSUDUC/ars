@@ -43,6 +43,13 @@
       and paswd = #{paswd,jdbcType=VARCHAR}
       and id = #{id,jdbcType=INTEGER}
   </select>
+  <select id="selectByKey" resultMap="BaseResultMap" parameterType="lyf.test.entity.t1userKey" >
+    select 
+    <include refid="Base_Column_List" />
+    from t1user
+    where username = #{username,jdbcType=VARCHAR}
+      and paswd = #{paswd,jdbcType=VARCHAR}
+  </select>
   <delete id="deleteByPrimaryKey" parameterType="lyf.test.entity.t1userKey" >
     delete from t1user
     where username = #{username,jdbcType=VARCHAR}

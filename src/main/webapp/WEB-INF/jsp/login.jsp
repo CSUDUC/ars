@@ -12,7 +12,7 @@
 		  }
 		</style>
         <meta charset="utf-8" />
-        <title>Metronic | User Login 2</title>
+        <title>农业遥感| User Login </title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta content="width=device-width, initial-scale=1" name="viewport" />
         <meta content="" name="description" />
@@ -38,21 +38,21 @@
         <!-- END PAGE LEVEL STYLES -->
         <!-- BEGIN THEME LAYOUT STYLES -->
         <!-- END THEME LAYOUT STYLES -->
-        <link rel="shortcut icon" href="favicon.ico" /> 
+        <link rel="icon" type="image/png" href="imgs/logoPic.png" sizes="32x32">
         
     </head>
     <!-- END HEAD -->
 <body class=" login">
 <!-- BEGIN LOGO -->
 <div class="logo">
-    <a href="index.html">
-        <img src="imgs/earth.png" style="height: 17px;" alt="" /> </a>
+    <a href="login">
+        <img src="imgs/logoPic.png" style="height: 90px;" alt="" /> </a>
 </div>
 <!-- END LOGO -->
 <!-- BEGIN LOGIN -->
 <div class="content">
     <!-- BEGIN LOGIN FORM -->
-<form class="login-form" action="index.html" method="post">
+<form class="login-form" action="TRSQJC" method="post">
     <div class="form-title">
         <span class="form-title">Welcome.</span>
         <span class="form-subtitle">Please login.</span>
@@ -107,7 +107,7 @@
 </form>
 <!-- END LOGIN FORM -->
 <!-- BEGIN FORGOT PASSWORD FORM -->
-<form class="forget-form" action="index.html" method="post">
+<form class="forget-form" action="login" method="post">
     <div class="form-title">
         <span class="form-title">Forget Password ?</span>
         <span class="form-subtitle">Enter your e-mail to reset it.</span>
@@ -121,7 +121,7 @@
 </form>
 <!-- END FORGOT PASSWORD FORM -->
 <!-- BEGIN REGISTRATION FORM -->
-            <form class="register-form" action="index.html" method="post">
+            <form class="register-form" action="login" method="post">
                 <div class="form-title">
                     <span class="form-title">Sign Up</span>
                 </div>
