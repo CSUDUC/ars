@@ -40,6 +40,8 @@
         <!-- END THEME LAYOUT STYLES -->
         <link rel="icon" type="image/png" href="imgs/logoPic.png" sizes="32x32">
         
+        <link href="plugins/laydate/skins/danlan/laydate.css" rel="stylesheet" type="text/css" />
+        
     </head>
     <!-- END HEAD -->
 <body class=" login">
@@ -379,6 +381,10 @@
                         <option value="ZW">Zimbabwe</option>
                     </select>
                 </div>
+                <div class="form-group">
+                		<label class="control-label visible-ie8 visible-ie9">Userage</label>
+    					<input id="userAge" type="text" placeholder="请输入日期" name="Age" class="orm-control placeholder-no-fix laydate-icon">
+				</div>
                 <p class="hint"> Enter your account details below: </p>
                 <div class="form-group">
                     <label class="control-label visible-ie8 visible-ie9">Username</label>
@@ -429,5 +435,17 @@
 <!-- END PAGE LEVEL SCRIPTS -->
 <!-- BEGIN THEME LAYOUT SCRIPTS -->
 <!-- END THEME LAYOUT SCRIPTS -->
+<script src="plugins/laydate/laydate.js"></script>
+<script>
+laydate({
+  elem: '#userAge',
+  format: 'YYYY-MM-DD', // 分隔符可以任意定义，该例子表示只显示年月
+  festival: true, //显示节日
+  choose: function(datas){ //选择日期完毕的回调
+    //alert('得到：'+datas);
+  }
+});
+laydate.skin('danlan');
+</script>
 </body>
 </html>
