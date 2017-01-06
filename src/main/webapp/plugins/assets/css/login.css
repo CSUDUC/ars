@@ -1,0 +1,317 @@
+/*
+myLogin1 css
+*/
+@import url(http://fonts.googleapis.com/css?family=Roboto:100);
+
+@import
+	url(http://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.css);
+
+body {
+	background: #1a1a1a;
+	color: white;
+	font-family: 'Roboto';
+}
+
+.selectDispicker{
+	width: 32%;
+	height: 40px;
+	padding-left: 15px;
+	background: #fff;
+	border: none;
+	color: #999999;
+	outline: none;
+}
+.dateDispicker{
+	width: 47%;
+	
+}
+.flat-form {
+	background: url(../images/1.png);
+	border-radius: 13px;
+	margin: 10px auto;
+	width: 390px;
+	position: relative;
+	float: right;
+	font-family: 'Roboto';
+	padding-bottom: 15px;
+}
+
+.tabs {
+	background: url(../images/1.png);
+	height: 40px;
+	margin: 0;
+	padding: 0;
+	list-style-type: none;
+	width: 100%;
+	position: relative;
+	display: block;
+	margin-bottom: 20px;
+}
+
+.tabs li {
+	display: block;
+	float: left;
+	margin: 0;
+	padding: 0;
+}
+
+.tabs a {
+	display: block;
+	float: left;
+	text-decoration: none;
+	color: white;
+	font-size: 16px;
+	padding: 12px 22px 12px 22px;
+	/*border-right: 1px solid @tab-border;*/
+}
+
+.tabs li:last-child a {
+	border-right: none;
+	width: 174px;
+	padding-left: 0;
+	padding-right: 0;
+	text-align: center;
+}
+
+.tabs a.active {
+	background: url(../images/1.png);
+	border-right: none;
+	-webkit-transition: all 0.5s linear;
+	-moz-transition: all 0.5s linear;
+	transition: all 0.5s linear;
+}
+
+.form-action {
+	padding: 0 20px;
+	position: relative;
+}
+
+.form-action h1 {
+	font-size: 42px;
+	padding-bottom: 10px;
+}
+
+.form-action p {
+	font-size: 12px;
+	padding-bottom: 10px;
+	line-height: 25px;
+}
+
+form {
+	padding-right: 20px !important;
+}
+
+form input[type=text],form input[type=password],form input[type=submit]
+	{
+	font-family: 'Roboto';
+}
+
+form input[type=text],form input[type=password] {
+	height: 40px;
+	padding-left: 15px;
+	background: #fff;
+	border: none;
+	color: #3382C9;
+	outline: none;
+}
+:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+    color: #999999;
+}
+
+::-moz-placeholder { /* Mozilla Firefox 19+ */
+    color: #999999;
+}
+
+input:-ms-input-placeholder,
+textarea:-ms-input-placeholder {
+    color: #999999;
+}
+
+input::-webkit-input-placeholder,
+textarea::-webkit-input-placeholder {
+    color: #999999;
+}
+.dark-box {
+	background: #5e0400;
+	box-shadow: 1px 3px 3px #3d0100 inset;
+	height: 40px;
+	width: 50px;
+}
+
+.form-action .dark-box.bottom {
+	position: absolute;
+	right: 0;
+	bottom: -24px;
+}
+
+.tabs+.dark-box.top {
+	position: absolute;
+	right: 0;
+	top: 0px;
+}
+
+.show {
+	display: block;
+}
+
+.hide {
+	display: none;
+}
+
+.button {
+	border: none;
+	display: block;
+	background: #136899;
+	height: 40px;
+	width: 80px;
+	color: #ffffff;
+	text-align: center;
+	border-radius: 5px;
+	/*box-shadow: 0px 3px 1px #2075aa;*/
+	-webkit-transition: all 0.15s linear;
+	-moz-transition: all 0.15s linear;
+	transition: all 0.15s linear;
+}
+
+.button:hover {
+	background: #1e75aa;
+	/*box-shadow: 0 3px 1px #237bb2;*/
+}
+
+.button:active {
+	background: #136899;
+	/*box-shadow: 0 3px 1px #0f608c;*/
+}
+
+::-webkit-input-placeholder {
+	color: #e74c3c;
+}
+
+:-moz-placeholder {
+	/* Firefox 18- */
+	color: #e74c3c;
+}
+
+::-moz-placeholder {
+	/* Firefox 19+ */
+	color: #e74c3c;
+}
+
+:-ms-input-placeholder {
+	color: #e74c3c;
+}
+/*
+end myLogin1 css
+*/
+@charset "utf-8";
+/* CSS Document */
+.main_box {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	margin-top: -260px;
+	margin-left: -300px;
+	padding: 30px;
+	width: 600px;
+	height: 460px;
+	background: url(../images/1.png);
+	border-radius: 10px;
+}
+
+.main_box .setting {
+	position: absolute;
+	top: 5px;
+	right: 10px;
+	width: 10px;
+	height: 10px;
+}
+
+.main_box .setting a {
+	color: #FF6600;
+}
+
+.main_box .setting a:hover {
+	color: #555;
+}
+
+.login_logo {
+	margin-bottom: 20px;
+	height: 45px;
+	text-align: center;
+}
+
+.login_logo img {
+	height: 45px;
+}
+
+.login_msg {
+	text-align: center;
+	font-size: 16px;
+}
+
+.login_form {
+	padding-top: 20px;
+	font-size: 16px;
+}
+
+.login_box .form-control {
+	display: inline-block;
+	*display: inline;
+	zoom: 1;
+	width: auto;
+	font-size: 18px;
+}
+
+.login_box .form-control.x319 {
+	width: 319px;
+}
+
+.login_box .form-control.x164 {
+	width: 164px;
+}
+
+.login_box .form-group {
+	margin-bottom: 20px;
+}
+
+.login_box .form-group label.t {
+	width: 120px;
+	text-align: right;
+	cursor: pointer;
+}
+
+.login_box .form-group.space {
+	padding-top: 15px;
+	border-top: 1px #FFF dotted;
+}
+
+.login_box .form-group img {
+	margin-top: 1px;
+	height: 32px;
+	vertical-align: top;
+}
+
+.login_box .m {
+	cursor: pointer;
+}
+
+.bottom {
+	text-align: center;
+	font-size: 12px;
+}
+
+
+h1 {
+	padding-left: 2.5em;
+    font-size: 3em;
+    letter-spacing: 3px;
+    color: #3382C9;
+    font-family: 微软雅黑;
+}
+h2 {
+	padding-left: 8em;
+    font-size: 1em;
+    letter-spacing: 3px;
+    color: #3382C9;
+    font-family: 微软雅黑;
+}
