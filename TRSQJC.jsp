@@ -51,7 +51,7 @@
   <!-- BEGIN CONTAINER -->
         <div class="wrapper">
         		<!-- 引入导航栏 -->
-        		<jsp:include page="navi1.jsp" flush="true"/> 
+        		<!--jsp:include page="navi1.jsp" flush="true"/--> 
             <div class="container-fluid">
 	            <div class="page-content">
 	            		<div class="page-content-container">
