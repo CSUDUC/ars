@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="lyf.test.mapper.t6orderMapper" >
+  <resultMap id="BaseResultMap" type="lyf.test.entity.t6order" >
+    <id column="userid" property="userid" jdbcType="INTEGER" />
+    <id column="codeid" property="codeid" jdbcType="CHAR" />
+    <result column="sdpath" property="sdpath" jdbcType="VARCHAR" />
+    <result column="geometry" property="geometry" jdbcType="VARCHAR" />
+    <result column="ordername" property="ordername" jdbcType="VARCHAR" />
+    <result column="cropkinds" property="cropkinds" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    userid, codeid, sdpath, geometry, ordername, cropkinds
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="lyf.test.entity.t6orderKey" >
+    select 
+    <include refid="Base_Column_List" />
+    from t6order
+    where userid = #{userid,jdbcType=INTEGER}
+      and codeid = #{codeid,jdbcType=CHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="lyf.test.entity.t6orderKey" >
+    delete from t6order
+    where userid = #{userid,jdbcType=INTEGER}
+      and codeid = #{codeid,jdbcType=CHAR}
+  </delete>
+  <insert id="insert" parameterType="lyf.test.entity.t6order" >
+    insert into t6order (userid, codeid, sdpath, 
+      geometry, ordername, cropkinds
+      )
+    values (#{userid,jdbcType=INTEGER}, #{codeid,jdbcType=CHAR}, #{sdpath,jdbcType=VARCHAR}, 
+      #{geometry,jdbcType=VARCHAR}, #{ordername,jdbcType=VARCHAR}, #{cropkinds,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="lyf.test.entity.t6order" >
+    insert into t6order
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="userid != null" >
+        userid,
+      </if>
+      <if test="codeid != null" >
+        codeid,
+      </if>
+      <if test="sdpath != null" >
+        sdpath,
+      </if>
+      <if test="geometry != null" >
+        geometry,
+      </if>
+      <if test="ordername != null" >
+        ordername,
+      </if>
+      <if test="cropkinds != null" >
+        cropkinds,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="userid != null" >
+        #{userid,jdbcType=INTEGER},
+      </if>
+      <if test="codeid != null" >
+        #{codeid,jdbcType=CHAR},
+      </if>
+      <if test="sdpath != null" >
+        #{sdpath,jdbcType=VARCHAR},
+      </if>
+      <if test="geometry != null" >
+        #{geometry,jdbcType=VARCHAR},
+      </if>
+      <if test="ordername != null" >
+        #{ordername,jdbcType=VARCHAR},
+      </if>
+      <if test="cropkinds != null" >
+        #{cropkinds,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="lyf.test.entity.t6order" >
+    update t6order
+    <set >
+      <if test="sdpath != null" >
+        sdpath = #{sdpath,jdbcType=VARCHAR},
+      </if>
+      <if test="geometry != null" >
+        geometry = #{geometry,jdbcType=VARCHAR},
+      </if>
+      <if test="ordername != null" >
+        ordername = #{ordername,jdbcType=VARCHAR},
+      </if>
+      <if test="cropkinds != null" >
+        cropkinds = #{cropkinds,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where userid = #{userid,jdbcType=INTEGER}
+      and codeid = #{codeid,jdbcType=CHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="lyf.test.entity.t6order" >
+    update t6order
+    set sdpath = #{sdpath,jdbcType=VARCHAR},
+      geometry = #{geometry,jdbcType=VARCHAR},
+      ordername = #{ordername,jdbcType=VARCHAR},
+      cropkinds = #{cropkinds,jdbcType=VARCHAR}
+    where userid = #{userid,jdbcType=INTEGER}
+      and codeid = #{codeid,jdbcType=CHAR}
+  </update>
+</mapper>

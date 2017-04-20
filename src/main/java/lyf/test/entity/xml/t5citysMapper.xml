@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="lyf.test.mapper.t5citysMapper" >
+  <resultMap id="BaseResultMap" type="lyf.test.entity.t5citys" >
+    <id column="codeid" property="codeid" jdbcType="VARCHAR" />
+    <result column="city1" property="city1" jdbcType="VARCHAR" />
+    <result column="city2" property="city2" jdbcType="VARCHAR" />
+    <result column="city3" property="city3" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    codeid, city1, city2, city3
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from t5citys
+    where codeid = #{codeid,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from t5citys
+    where codeid = #{codeid,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="lyf.test.entity.t5citys" >
+    insert into t5citys (codeid, city1, city2, 
+      city3)
+    values (#{codeid,jdbcType=VARCHAR}, #{city1,jdbcType=VARCHAR}, #{city2,jdbcType=VARCHAR}, 
+      #{city3,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="lyf.test.entity.t5citys" >
+    insert into t5citys
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="codeid != null" >
+        codeid,
+      </if>
+      <if test="city1 != null" >
+        city1,
+      </if>
+      <if test="city2 != null" >
+        city2,
+      </if>
+      <if test="city3 != null" >
+        city3,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="codeid != null" >
+        #{codeid,jdbcType=VARCHAR},
+      </if>
+      <if test="city1 != null" >
+        #{city1,jdbcType=VARCHAR},
+      </if>
+      <if test="city2 != null" >
+        #{city2,jdbcType=VARCHAR},
+      </if>
+      <if test="city3 != null" >
+        #{city3,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="lyf.test.entity.t5citys" >
+    update t5citys
+    <set >
+      <if test="city1 != null" >
+        city1 = #{city1,jdbcType=VARCHAR},
+      </if>
+      <if test="city2 != null" >
+        city2 = #{city2,jdbcType=VARCHAR},
+      </if>
+      <if test="city3 != null" >
+        city3 = #{city3,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where codeid = #{codeid,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="lyf.test.entity.t5citys" >
+    update t5citys
+    set city1 = #{city1,jdbcType=VARCHAR},
+      city2 = #{city2,jdbcType=VARCHAR},
+      city3 = #{city3,jdbcType=VARCHAR}
+    where codeid = #{codeid,jdbcType=VARCHAR}
+  </update>
+</mapper>

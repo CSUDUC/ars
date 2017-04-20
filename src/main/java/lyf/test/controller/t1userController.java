@@ -52,7 +52,7 @@ public class t1userController {
 	public String toTRSQJC(HttpServletRequest request,Model model){  
 		String username = request.getParameter("username");
 		String pwd = request.getParameter("password");
-		//logger.info(username+","+pwd);
+		logger.info(username+","+pwd);
 		if (username==null&&pwd==null) {
 			return "login";
 		}
@@ -60,8 +60,9 @@ public class t1userController {
 			t1userKey key = new t1userKey();
 			key.setUsername(username);
 			key.setPaswd(pwd);
-			t1user t1user = t1userservice.selectByKey_Service(key);
-			//logger.info(JSON.toJSONString(t1user)); 
+			key.setId(75);
+			t1user t1user = t1userservice.selectByPrimaryKey_Service(key);
+			logger.info(JSON.toJSONString(t1user)); 
 			if (t1user != null) {
 				return "TRSQJC"; 
 			}
