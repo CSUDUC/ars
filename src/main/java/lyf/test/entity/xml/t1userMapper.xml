@@ -1,0 +1,318 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="lyf.test.mapper.t1userMapper" >
+  <resultMap id="BaseResultMap" type="lyf.test.entity.t1user" >
+    <id column="username" property="username" jdbcType="VARCHAR" />
+    <id column="paswd" property="paswd" jdbcType="VARCHAR" />
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="nametiny" property="nametiny" jdbcType="VARCHAR" />
+    <result column="telphone" property="telphone" jdbcType="VARCHAR" />
+    <result column="urlphoto" property="urlphoto" jdbcType="VARCHAR" />
+    <result column="address" property="address" jdbcType="VARCHAR" />
+    <result column="unit" property="unit" jdbcType="VARCHAR" />
+    <result column="email" property="email" jdbcType="VARCHAR" />
+    <result column="wechat" property="wechat" jdbcType="VARCHAR" />
+    <result column="realname" property="realname" jdbcType="VARCHAR" />
+    <result column="age" property="age" jdbcType="DATE" />
+    <result column="sex" property="sex" jdbcType="CHAR" />
+    <result column="cardid" property="cardid" jdbcType="VARCHAR" />
+    <result column="weichatphoto" property="weichatphoto" jdbcType="VARCHAR" />
+    <result column="servstarttime" property="servstarttime" jdbcType="DATE" />
+    <result column="yeildesm" property="yeildesm" jdbcType="BIT" />
+    <result column="status_" property="status" jdbcType="INTEGER" />
+    <result column="timeadd" property="timeadd" jdbcType="DATE" />
+    <result column="labelids" property="labelids" jdbcType="VARCHAR" />
+    <result column="opid" property="opid" jdbcType="INTEGER" />
+    <result column="servendtime" property="servendtime" jdbcType="DATE" />
+    <result column="locno" property="locno" jdbcType="VARCHAR" />
+    <result column="producttype" property="producttype" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    username, paswd, id, nametiny, telphone, urlphoto, address, unit, email, wechat, 
+    realname, age, sex, cardid, weichatphoto, servstarttime, yeildesm, status_, timeadd, 
+    labelids, opid, servendtime, locno, producttype
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="lyf.test.entity.t1userKey" >
+    select 
+    <include refid="Base_Column_List" />
+    from t1user
+    where username = #{username,jdbcType=VARCHAR}
+      and paswd = #{paswd,jdbcType=VARCHAR}
+      and id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="lyf.test.entity.t1userKey" >
+    delete from t1user
+    where username = #{username,jdbcType=VARCHAR}
+      and paswd = #{paswd,jdbcType=VARCHAR}
+      and id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="lyf.test.entity.t1user" >
+    insert into t1user (username, paswd, id, 
+      nametiny, telphone, urlphoto, 
+      address, unit, email, 
+      wechat, realname, age, 
+      sex, cardid, weichatphoto, 
+      servstarttime, yeildesm, status_, 
+      timeadd, labelids, opid, 
+      servendtime, locno, producttype
+      )
+    values (#{username,jdbcType=VARCHAR}, #{paswd,jdbcType=VARCHAR}, #{id,jdbcType=INTEGER}, 
+      #{nametiny,jdbcType=VARCHAR}, #{telphone,jdbcType=VARCHAR}, #{urlphoto,jdbcType=VARCHAR}, 
+      #{address,jdbcType=VARCHAR}, #{unit,jdbcType=VARCHAR}, #{email,jdbcType=VARCHAR}, 
+      #{wechat,jdbcType=VARCHAR}, #{realname,jdbcType=VARCHAR}, #{age,jdbcType=DATE}, 
+      #{sex,jdbcType=CHAR}, #{cardid,jdbcType=VARCHAR}, #{weichatphoto,jdbcType=VARCHAR}, 
+      #{servstarttime,jdbcType=DATE}, #{yeildesm,jdbcType=BIT}, #{status,jdbcType=INTEGER}, 
+      #{timeadd,jdbcType=DATE}, #{labelids,jdbcType=VARCHAR}, #{opid,jdbcType=INTEGER}, 
+      #{servendtime,jdbcType=DATE}, #{locno,jdbcType=VARCHAR}, #{producttype,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="lyf.test.entity.t1user" >
+    insert into t1user
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="username != null" >
+        username,
+      </if>
+      <if test="paswd != null" >
+        paswd,
+      </if>
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="nametiny != null" >
+        nametiny,
+      </if>
+      <if test="telphone != null" >
+        telphone,
+      </if>
+      <if test="urlphoto != null" >
+        urlphoto,
+      </if>
+      <if test="address != null" >
+        address,
+      </if>
+      <if test="unit != null" >
+        unit,
+      </if>
+      <if test="email != null" >
+        email,
+      </if>
+      <if test="wechat != null" >
+        wechat,
+      </if>
+      <if test="realname != null" >
+        realname,
+      </if>
+      <if test="age != null" >
+        age,
+      </if>
+      <if test="sex != null" >
+        sex,
+      </if>
+      <if test="cardid != null" >
+        cardid,
+      </if>
+      <if test="weichatphoto != null" >
+        weichatphoto,
+      </if>
+      <if test="servstarttime != null" >
+        servstarttime,
+      </if>
+      <if test="yeildesm != null" >
+        yeildesm,
+      </if>
+      <if test="status != null" >
+        status_,
+      </if>
+      <if test="timeadd != null" >
+        timeadd,
+      </if>
+      <if test="labelids != null" >
+        labelids,
+      </if>
+      <if test="opid != null" >
+        opid,
+      </if>
+      <if test="servendtime != null" >
+        servendtime,
+      </if>
+      <if test="locno != null" >
+        locno,
+      </if>
+      <if test="producttype != null" >
+        producttype,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="username != null" >
+        #{username,jdbcType=VARCHAR},
+      </if>
+      <if test="paswd != null" >
+        #{paswd,jdbcType=VARCHAR},
+      </if>
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="nametiny != null" >
+        #{nametiny,jdbcType=VARCHAR},
+      </if>
+      <if test="telphone != null" >
+        #{telphone,jdbcType=VARCHAR},
+      </if>
+      <if test="urlphoto != null" >
+        #{urlphoto,jdbcType=VARCHAR},
+      </if>
+      <if test="address != null" >
+        #{address,jdbcType=VARCHAR},
+      </if>
+      <if test="unit != null" >
+        #{unit,jdbcType=VARCHAR},
+      </if>
+      <if test="email != null" >
+        #{email,jdbcType=VARCHAR},
+      </if>
+      <if test="wechat != null" >
+        #{wechat,jdbcType=VARCHAR},
+      </if>
+      <if test="realname != null" >
+        #{realname,jdbcType=VARCHAR},
+      </if>
+      <if test="age != null" >
+        #{age,jdbcType=DATE},
+      </if>
+      <if test="sex != null" >
+        #{sex,jdbcType=CHAR},
+      </if>
+      <if test="cardid != null" >
+        #{cardid,jdbcType=VARCHAR},
+      </if>
+      <if test="weichatphoto != null" >
+        #{weichatphoto,jdbcType=VARCHAR},
+      </if>
+      <if test="servstarttime != null" >
+        #{servstarttime,jdbcType=DATE},
+      </if>
+      <if test="yeildesm != null" >
+        #{yeildesm,jdbcType=BIT},
+      </if>
+      <if test="status != null" >
+        #{status,jdbcType=INTEGER},
+      </if>
+      <if test="timeadd != null" >
+        #{timeadd,jdbcType=DATE},
+      </if>
+      <if test="labelids != null" >
+        #{labelids,jdbcType=VARCHAR},
+      </if>
+      <if test="opid != null" >
+        #{opid,jdbcType=INTEGER},
+      </if>
+      <if test="servendtime != null" >
+        #{servendtime,jdbcType=DATE},
+      </if>
+      <if test="locno != null" >
+        #{locno,jdbcType=VARCHAR},
+      </if>
+      <if test="producttype != null" >
+        #{producttype,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="lyf.test.entity.t1user" >
+    update t1user
+    <set >
+      <if test="nametiny != null" >
+        nametiny = #{nametiny,jdbcType=VARCHAR},
+      </if>
+      <if test="telphone != null" >
+        telphone = #{telphone,jdbcType=VARCHAR},
+      </if>
+      <if test="urlphoto != null" >
+        urlphoto = #{urlphoto,jdbcType=VARCHAR},
+      </if>
+      <if test="address != null" >
+        address = #{address,jdbcType=VARCHAR},
+      </if>
+      <if test="unit != null" >
+        unit = #{unit,jdbcType=VARCHAR},
+      </if>
+      <if test="email != null" >
+        email = #{email,jdbcType=VARCHAR},
+      </if>
+      <if test="wechat != null" >
+        wechat = #{wechat,jdbcType=VARCHAR},
+      </if>
+      <if test="realname != null" >
+        realname = #{realname,jdbcType=VARCHAR},
+      </if>
+      <if test="age != null" >
+        age = #{age,jdbcType=DATE},
+      </if>
+      <if test="sex != null" >
+        sex = #{sex,jdbcType=CHAR},
+      </if>
+      <if test="cardid != null" >
+        cardid = #{cardid,jdbcType=VARCHAR},
+      </if>
+      <if test="weichatphoto != null" >
+        weichatphoto = #{weichatphoto,jdbcType=VARCHAR},
+      </if>
+      <if test="servstarttime != null" >
+        servstarttime = #{servstarttime,jdbcType=DATE},
+      </if>
+      <if test="yeildesm != null" >
+        yeildesm = #{yeildesm,jdbcType=BIT},
+      </if>
+      <if test="status != null" >
+        status_ = #{status,jdbcType=INTEGER},
+      </if>
+      <if test="timeadd != null" >
+        timeadd = #{timeadd,jdbcType=DATE},
+      </if>
+      <if test="labelids != null" >
+        labelids = #{labelids,jdbcType=VARCHAR},
+      </if>
+      <if test="opid != null" >
+        opid = #{opid,jdbcType=INTEGER},
+      </if>
+      <if test="servendtime != null" >
+        servendtime = #{servendtime,jdbcType=DATE},
+      </if>
+      <if test="locno != null" >
+        locno = #{locno,jdbcType=VARCHAR},
+      </if>
+      <if test="producttype != null" >
+        producttype = #{producttype,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where username = #{username,jdbcType=VARCHAR}
+      and paswd = #{paswd,jdbcType=VARCHAR}
+      and id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="lyf.test.entity.t1user" >
+    update t1user
+    set nametiny = #{nametiny,jdbcType=VARCHAR},
+      telphone = #{telphone,jdbcType=VARCHAR},
+      urlphoto = #{urlphoto,jdbcType=VARCHAR},
+      address = #{address,jdbcType=VARCHAR},
+      unit = #{unit,jdbcType=VARCHAR},
+      email = #{email,jdbcType=VARCHAR},
+      wechat = #{wechat,jdbcType=VARCHAR},
+      realname = #{realname,jdbcType=VARCHAR},
+      age = #{age,jdbcType=DATE},
+      sex = #{sex,jdbcType=CHAR},
+      cardid = #{cardid,jdbcType=VARCHAR},
+      weichatphoto = #{weichatphoto,jdbcType=VARCHAR},
+      servstarttime = #{servstarttime,jdbcType=DATE},
+      yeildesm = #{yeildesm,jdbcType=BIT},
+      status_ = #{status,jdbcType=INTEGER},
+      timeadd = #{timeadd,jdbcType=DATE},
+      labelids = #{labelids,jdbcType=VARCHAR},
+      opid = #{opid,jdbcType=INTEGER},
+      servendtime = #{servendtime,jdbcType=DATE},
+      locno = #{locno,jdbcType=VARCHAR},
+      producttype = #{producttype,jdbcType=VARCHAR}
+    where username = #{username,jdbcType=VARCHAR}
+      and paswd = #{paswd,jdbcType=VARCHAR}
+      and id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>
