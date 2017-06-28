@@ -40,6 +40,13 @@
       and paswd = #{paswd,jdbcType=VARCHAR}
       and id = #{id,jdbcType=INTEGER}
   </select>
+  <select id="selectByUserNameAndPwd" resultMap="BaseResultMap" parameterType="lyf.test.entity.t1userKey" >
+    select 
+    <include refid="Base_Column_List" />
+    from t1user
+    where username = #{username,jdbcType=VARCHAR}
+      and paswd = #{paswd,jdbcType=VARCHAR}
+  </select>
   <delete id="deleteByPrimaryKey" parameterType="lyf.test.entity.t1userKey" >
     delete from t1user
     where username = #{username,jdbcType=VARCHAR}
@@ -287,6 +294,81 @@
     where username = #{username,jdbcType=VARCHAR}
       and paswd = #{paswd,jdbcType=VARCHAR}
       and id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByUserIDSelective" parameterType="lyf.test.entity.t1user" >
+    update t1user
+    <set >
+    	<if test="username != null" >
+        username = #{username,jdbcType=VARCHAR},
+      </if>
+      <if test="paswd != null" >
+        paswd = #{paswd,jdbcType=VARCHAR},
+      </if>
+      <if test="nametiny != null" >
+        nametiny = #{nametiny,jdbcType=VARCHAR},
+      </if>
+      <if test="telphone != null" >
+        telphone = #{telphone,jdbcType=VARCHAR},
+      </if>
+      <if test="urlphoto != null" >
+        urlphoto = #{urlphoto,jdbcType=VARCHAR},
+      </if>
+      <if test="address != null" >
+        address = #{address,jdbcType=VARCHAR},
+      </if>
+      <if test="unit != null" >
+        unit = #{unit,jdbcType=VARCHAR},
+      </if>
+      <if test="email != null" >
+        email = #{email,jdbcType=VARCHAR},
+      </if>
+      <if test="wechat != null" >
+        wechat = #{wechat,jdbcType=VARCHAR},
+      </if>
+      <if test="realname != null" >
+        realname = #{realname,jdbcType=VARCHAR},
+      </if>
+      <if test="age != null" >
+        age = #{age,jdbcType=DATE},
+      </if>
+      <if test="sex != null" >
+        sex = #{sex,jdbcType=CHAR},
+      </if>
+      <if test="cardid != null" >
+        cardid = #{cardid,jdbcType=VARCHAR},
+      </if>
+      <if test="weichatphoto != null" >
+        weichatphoto = #{weichatphoto,jdbcType=VARCHAR},
+      </if>
+      <if test="servstarttime != null" >
+        servstarttime = #{servstarttime,jdbcType=DATE},
+      </if>
+      <if test="yeildesm != null" >
+        yeildesm = #{yeildesm,jdbcType=BIT},
+      </if>
+      <if test="status != null" >
+        status_ = #{status,jdbcType=INTEGER},
+      </if>
+      <if test="timeadd != null" >
+        timeadd = #{timeadd,jdbcType=DATE},
+      </if>
+      <if test="labelids != null" >
+        labelids = #{labelids,jdbcType=VARCHAR},
+      </if>
+      <if test="opid != null" >
+        opid = #{opid,jdbcType=INTEGER},
+      </if>
+      <if test="servendtime != null" >
+        servendtime = #{servendtime,jdbcType=DATE},
+      </if>
+      <if test="locno != null" >
+        locno = #{locno,jdbcType=VARCHAR},
+      </if>
+      <if test="producttype != null" >
+        producttype = #{producttype,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
   </update>
   <update id="updateByPrimaryKey" parameterType="lyf.test.entity.t1user" >
     update t1user

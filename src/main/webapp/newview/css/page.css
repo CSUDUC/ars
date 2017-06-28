@@ -1,0 +1,8 @@
+@charset "utf-8";
+/* CSS Document */
+.tcdPageCode{text-align: left;text-align:center;}
+.tcdPageCode a{display: inline-block;color: #3e3e3e;display: inline-block;height: 20px;	line-height: 20px;	padding: 0 8px;border: 1px solid #ddd;	margin: 0 2px;border-radius: 4px;vertical-align: middle; background:#fff;}
+.tcdPageCode a:hover{text-decoration: none;border: 1px solid #a4d4ff;}
+.tcdPageCode span.current{display: inline-block;height: 20px;line-height: 20px;padding: 0 8px;margin: 0 2px;color: #fff;background-color: #51bb85;	border: 1px solid #428bca;border-radius: 4px;vertical-align: middle;}
+.tcdPageCode span.disabled{	display: inline-block;height: 25px;line-height: 25px;padding: 0 10px;margin: 0 2px;	color: #bfbfbf;background: #f2f2f2;bordser: 1px solid #bfbfbf;border-radius: 4px;vertical-align: middle;}
+

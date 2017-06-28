@@ -75,5 +75,23 @@ public class t1userServiceImp implements t1userService{
 		// TODO Auto-generated method stub
 		return t1userDao.updateByPrimaryKey(record);
 	}
+
+	/* (non-Javadoc)
+	 * @see lyf.test.service.t1userService#selectByUserNameAndPwd_Service(lyf.test.entity.t1userKey)
+	 */
+	@Override
+	public t1user selectByUserNameAndPwd_Service(t1userKey key) {
+		// TODO Auto-generated method stub
+		return t1userDao.selectByUserNameAndPwd(key);
+	}
+
+	/* (non-Javadoc)
+	 * @see lyf.test.service.t1userService#updateByUserIDSelective(int)
+	 */
+	@Override
+	public int updateByUserIDSelective_Service(t1user record) {
+		// TODO Auto-generated method stub
+		return t1userDao.updateByUserIDSelective(record);
+	}
 	
 }

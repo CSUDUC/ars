@@ -1,0 +1,24 @@
+@charset "utf-8";
+/* CSS Document */
+/*------通用样式-----*/
+body,h1,h2,h3,h4,span,dl,dt,dd,li,ul,ol,p,div,input,img,a,form,fieldset,legend,button,table,tbody,tr,td,textarea{ 
+	margin:0; 
+	padding:0; 
+	border:0; 
+	list-style:none;
+}
+body{
+	font-family:"Tahoma",Arial,"微软雅黑","宋体";
+	font-size:12px;
+	color:#666;
+}
+a{
+	text-decoration:none;
+	outline:none;
+}
+input{
+	outline:none;
+}
+a:hover{
+	text-decoration:none;
+}

@@ -11,8 +11,12 @@ public interface t1userMapper {
     int insertSelective(t1user record);
 
     t1user selectByPrimaryKey(t1userKey key);
+    
+    t1user selectByUserNameAndPwd(t1userKey key);
 
     int updateByPrimaryKeySelective(t1user record);
 
+    int updateByUserIDSelective(t1user record);
+    
     int updateByPrimaryKey(t1user record);
 }

@@ -16,6 +16,23 @@
     from t5citys
     where codeid = #{codeid,jdbcType=VARCHAR}
   </select>
+  
+  <select id="selectByShengShi" resultMap="BaseResultMap" parameterType="lyf.test.entity.t5citys" >
+    select 
+    <include refid="Base_Column_List" />
+    from t5citys
+    where city1 = #{city1,jdbcType=VARCHAR}
+    and city2 = #{city2,jdbcType=VARCHAR}
+  </select>
+  
+  <select id="selectByShengShiCodeAndXian" resultMap="BaseResultMap" parameterType="lyf.test.entity.t5citys" >
+    select 
+    <include refid="Base_Column_List" />
+    from t5citys
+    where codeid like #{codeid,jdbcType=VARCHAR}
+    and city3 = #{city3,jdbcType=VARCHAR}
+  </select>
+  
   <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
     delete from t5citys
     where codeid = #{codeid,jdbcType=VARCHAR}

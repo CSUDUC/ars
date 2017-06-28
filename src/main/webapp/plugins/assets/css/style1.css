@@ -10,6 +10,8 @@ body{
 h1,h2,h3,h4,h5,h6{
 	 font-family: 'Pompiere-Regular';
 }
+
+
 @font-face {
    font-family: 'Pompiere-Regular';
    src: url(../fonts/Pompiere-Regular.ttf)format('truetype');
@@ -320,7 +322,7 @@ button.btn.btn-danger.btn-styl{
     padding-top: 5em;
 }
 .banner-forms {
-    width: 20%;
+    
     float: right;
     text-align: right;
     background-color: #fff;

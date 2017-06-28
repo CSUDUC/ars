@@ -1,5 +1,7 @@
 package lyf.test.mapper;
 
+import java.util.List;
+
 import lyf.test.entity.t6order;
 import lyf.test.entity.t6orderKey;
 
@@ -15,4 +17,6 @@ public interface t6orderMapper {
     int updateByPrimaryKeySelective(t6order record);
 
     int updateByPrimaryKey(t6order record);
+    
+    List<t6order> selectByUserId(int userid);
 }

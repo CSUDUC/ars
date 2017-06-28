@@ -19,6 +19,12 @@
     where userid = #{userid,jdbcType=INTEGER}
       and codeid = #{codeid,jdbcType=CHAR}
   </select>
+  <select id="selectByUserId" resultMap="BaseResultMap" parameterType="int" >
+    select 
+    <include refid="Base_Column_List" />
+    from t6order
+    where userid = #{userid,jdbcType=INTEGER}
+  </select>
   <delete id="deleteByPrimaryKey" parameterType="lyf.test.entity.t6orderKey" >
     delete from t6order
     where userid = #{userid,jdbcType=INTEGER}
