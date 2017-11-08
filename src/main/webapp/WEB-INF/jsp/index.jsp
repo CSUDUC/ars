@@ -20,6 +20,7 @@
 	margin:20px auto;
 	display:block;
 }
+
 ._citys { width: 430px; display: inline-block; border: 2px solid #eee; padding: 5px; position: relative; background:#fff;}
 ._citys span { color: #56b4f8; height: 15px; width: 15px; line-height: 15px; text-align: center; border-radius: 3px; position: absolute; right: 10px; top: 10px; border: 1px solid #56b4f8; cursor: pointer; }
 ._citys0 { width: 100%; height: 34px; display: inline-block; border-bottom: 2px solid #56b4f8; padding: 0; margin: 0; }
@@ -222,13 +223,15 @@
                 </ul>
             </div>
         </div>
+        <!--图层控制  -->
+       
       	<!--时间轴-->
         <div class="BbWebBlockTime">
-        	<div class="BbBlockTab">
-            		<span>2015</span>
-                <span>2016</span>
-                <span class="choosed">2017</span>
-        </div>
+	        	<div class="BbBlockTab">
+	            		<span>2015</span>
+	                <span>2016</span>
+	                <span class="choosed">2017</span>
+	        </div>
             <div class="BbBlockTimeWrap" id="leftMarquee">
         			<a class="prev" id="prev"></a>
             		<a class="next" id="next"></a>

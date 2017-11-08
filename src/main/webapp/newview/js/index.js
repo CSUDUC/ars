@@ -79,6 +79,7 @@ $(function(){
 				  "esri/Map", "esri/views/MapView", "esri/views/SceneView",
 						"esri/layers/ImageryLayer",
 						"esri/layers/GraphicsLayer",
+						"esri/geometry/Geometry",
 						"esri/geometry/Point",
 						"esri/geometry/Polyline",
 						"esri/geometry/Polygon",
@@ -101,7 +102,7 @@ $(function(){
 			            "esri/config",
 						"dojo/domReady!" ],
 				function(dom,on,query,arrayUtils,Map, MapView, SceneView, ImageryLayer, 
-						GraphicsLayer, Point,
+						GraphicsLayer, Geometry,Point,
 						Polyline, Polygon, Extent, Circle, Graphic, SimpleMarkerSymbol, SimpleLineSymbol,
 						SimpleFillSymbol, TextSymbol,
 						RasterFunction,
@@ -217,7 +218,7 @@ $(function(){
 				                    data:{codeid:codeid},  
 				                    success:function(data){  
 				                    		//alert(data);
-				                    		AddGra(data["order"]);
+				                    		//AddGra(data["order"]);
 				                    		//renderGraphic(data["order"]);
 				                    		initProductGallery(data["user"]);
 				                    },  
@@ -231,9 +232,10 @@ $(function(){
 							_drawGraphicLayer.removeAll();
 							
 			            		var selectgeometry = selectorder["geometry"];
-	   						//alert(selectgeometry);
-	   						var selectGra = Graphic.fromJSON(dojo.fromJson(selectgeometry));
-	   						if(selectGra.geometry==null)//行政区域
+	   						
+	   						var selectGra_geo = Polygon.fromJSON(dojo.fromJson(selectgeometry));
+	   						
+	   						if(selectGra_geo.extent==null)//行政区域
 	   						{
 	   							
 	   							generateGraphicByAreaCode(selectgeometry);
@@ -241,6 +243,12 @@ $(function(){
 //	   							console.log(m_GraphicOfChooseArea);
 	   						}
 	   						else{//画的地块
+	   							
+	   							var selectGra = new Graphic({
+			                        geometry: selectGra_geo,
+			                        symbol: polygonSymbol
+			                    });
+	   							
 	   							_drawGraphicLayer.add(selectGra);
 	   							var extent_selectGra = selectGra.geometry.extent;
 					 	        view.extent = extent_selectGra;
@@ -521,19 +529,21 @@ $(function(){
 			        	  	var m_drawareaName = dom.byId('DrawAreaName').value;
 		      	  		
 		               	var m_cropKinds = $('.crop_lists span');
-		               	var m_cropKindsVal = [];
+		               	var m_cropKindsVal="";
 		               	for(var i=0;i<3;i++)
 		               		{
 				               	if(m_cropKinds[i].className=="on")
 				       	        	{
-				               		m_cropKindsVal.push(m_cropKinds[i].innerText);
+				               		m_cropKindsVal+=m_cropKinds[i].innerText+"/";
 				       	        	}
 		               		}
 		               	//console.log(m_cropKindsVal);
 		               	var m_GraphicOfDrawStr="";
 		               	if(DrawOrChoose)//地块是通过画图产生
 		               	{
-		               		m_GraphicOfDrawStr = dojo.toJson(m_GraphicOfDraw.toJSON());
+		               		var m_GraphicOfDraw_geo=m_GraphicOfDraw.geometry;
+		               		m_GraphicOfDrawStr=dojo.toJson(m_GraphicOfDraw_geo.toJSON());
+		               		//m_GraphicOfDrawStr = dojo.toJson(m_GraphicOfDraw.toJSON());
 		               		//alert(m_GraphicOfDrawStr);
 		               	}
 		               	else{//地块是通过行政区域选择产生
@@ -545,7 +555,7 @@ $(function(){
 			                    url:"doDrawSave",  
 			                    dataType:"json",  
 			                    async: false,  
-			                    data:{resultPicUrl:result.url,drawareaName:m_drawareaName,cropKinds:JSON.stringify(m_cropKindsVal),GraphicOfDrawStr:m_GraphicOfDrawStr},  
+			                    data:{resultPicUrl:result.url,drawareaName:m_drawareaName,cropKinds:m_cropKindsVal,GraphicOfDrawStr:m_GraphicOfDrawStr},  
 			                    success:function(data){
 			                    		if(data==0)
 		                    			{
@@ -598,6 +608,7 @@ function StartDraw()
 	
 function initProductGallery(userinfo)
 {
+	test1();
  	$('.BbBlockRightWrap').show();
 	$('.BbWebBlockTime').show();
 	
@@ -625,10 +636,117 @@ function initProductGallery(userinfo)
 	$('.Block_function li').click(function(e) {
         $(this).addClass('checked').siblings().removeClass('checked');
         //console.log($(this).find("span").attr("id"));
+        var selectText = $(this).find("span").attr("id");
+        if(selectText=="NYBCHJC")
+        	{
+        		test1();
+        	}
+        else{
+        		test2();
+        }
+        
     });
 	$('.block_list_ul li').click(function(e) {
         console.log($(this).find("span")[1].innerText);
     });
+	
+}
+function test1()
+{
+	 require([
+	          "esri/Map",
+	          "esri/views/MapView",
+	          "esri/layers/MapImageLayer",
+	          "esri/widgets/LayerList",
+	          "dojo/on",
+	          "dojo/domReady!"
+	        ],
+	        function(
+	          Map, MapView, MapImageLayer,LayerList, on
+	        ) {
+		 var diseaselayer = new MapImageLayer({
+	          url: "http://10.2.3.222:6080/arcgis/rest/services/disease1/MapServer",
+	          sublayers: [
+	          {
+	            id: 0,
+	            visible: true
+	          }, {
+	            id: 1,
+	            visible: false,
+	            
+	          }, {
+	            id: 2,
+	            visible: false
+	          }, {
+	            id: 3,
+	            visible: false
+	          }, 
+	          {
+		            id: 4,
+		            visible: false
+		      },
+		      {
+		            id: 5,
+		            visible: false
+		      }]
+	        });
+		 map.removeAll();
+		 map.add(diseaselayer);
+		 view.goTo(diseaselayer);
+		 view.ui.empty("top-left");
+		 view.then(function() {
+		        var layerList = new LayerList({
+		          view: view
+		        });
+
+		        // Add widget to the top right corner of the view
+		        view.ui.add(layerList, "top-left");
+		        view.ui.padding = { top: 0, left: 150, right: 0, bottom: 0 };
+		 });
+	 });
+}
+function test2()
+{
+	require([
+	          "esri/Map",
+	          "esri/views/MapView",
+	          "esri/layers/MapImageLayer",
+	          "esri/widgets/LayerList",
+	          "dojo/on",
+	          "dojo/domReady!"
+	        ],
+	        function(
+	          Map, MapView, MapImageLayer, LayerList,on
+	        ) {
+		 var growinglayer = new MapImageLayer({
+	          url: "http://10.2.3.222:6080/arcgis/rest/services/growing/MapServer",
+	          sublayers: [
+	          {
+	            id: 0,
+	            visible: false
+	          }, {
+	            id: 1,
+	            visible: false,
+	            
+	          }, {
+	            id: 2,
+	            visible: true
+	          }]
+	        });
+		 map.removeAll();
+		 map.add(growinglayer);
+		 view.goTo(growinglayer);
+		 view.ui.empty("top-left");
+		 view.then(function() {
+		        var layerList = new LayerList({
+		          view: view
+		        });
+
+		        // Add widget to the top right corner of the view
+		        view.ui.add(layerList, "top-left");
+		        view.ui.padding = { top: 0, left: 150, right: 0, bottom: 0 };
+		 });
+	 });
 }
 function processRegion()
 {
@@ -759,6 +877,7 @@ function renderGraphic(data){
 	          "esri/Map",
 	          "esri/views/MapView",
 	          "esri/layers/ImageryLayer",
+	          "esri/geometry/Geometry",
 	          "esri/geometry/Point",
 				"esri/geometry/Polyline",
 				"esri/geometry/Polygon",
@@ -771,15 +890,15 @@ function renderGraphic(data){
 	          "esri/core/watchUtils",
 	          "dojo/domReady!"
 	        ], function(
-	          Map, MapView, ImageryLayer,Point,
+	          Map, MapView, ImageryLayer,Geometry,Point,
 				Polyline, Polygon, Extent, Circle, Graphic, 
 	          RasterFunction, DimensionalDefinition, MosaicRule, watchUtils
 	        ) {
 		 
 		 var selectgeometry = data["geometry"];
 			//alert(selectgeometry);
-		var selectGra = Graphic.fromJSON(dojo.fromJson(selectgeometry));
-		var 	selectGra_geometry=selectGra.geometry;
+		//var selectGra = Graphic.fromJSON(dojo.fromJson(selectgeometry));
+		var 	selectGra_geometry=Geometry.fromJSON(dojo.fromJson(selectgeometry));
 		
 		var geoRings=selectGra_geometry.rings;
 		//console.log(geoRings);
