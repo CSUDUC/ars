@@ -79,6 +79,7 @@ $(function(){
 				  "esri/Map", "esri/views/MapView", "esri/views/SceneView",
 						"esri/layers/ImageryLayer",
 						"esri/layers/GraphicsLayer",
+						"esri/layers/MapImageLayer",
 						"esri/geometry/Geometry",
 						"esri/geometry/Point",
 						"esri/geometry/Polyline",
@@ -102,7 +103,7 @@ $(function(){
 			            "esri/config",
 						"dojo/domReady!" ],
 				function(dom,on,query,arrayUtils,Map, MapView, SceneView, ImageryLayer, 
-						GraphicsLayer, Geometry,Point,
+						GraphicsLayer, MapImageLayer,Geometry,Point,
 						Polyline, Polygon, Extent, Circle, Graphic, SimpleMarkerSymbol, SimpleLineSymbol,
 						SimpleFillSymbol, TextSymbol,
 						RasterFunction,
@@ -134,6 +135,11 @@ $(function(){
 			            //_tempGraphicLayer = new GraphicsLayer(); // 绘制过程中的要素图层
 			            _drawGraphicLayer = new GraphicsLayer(); // 绘制完成的要素图层
 			            map.add(_drawGraphicLayer);
+			            
+			            var layer = new MapImageLayer({
+			                url: "http://localhost:6080/arcgis/rest/services/test/MapServer"
+			              });
+			              map.add(layer);  // adds the layer to the map
 			            /*
 			            *地名搜索相关变量
 			            */

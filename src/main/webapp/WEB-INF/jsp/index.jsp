@@ -200,7 +200,7 @@
         <div class="BbBlockRightWrap">
         	<div class="BbBlockRight">
             	<ul class="Block_function" id="Block_function_ul_id">
-            			<!-- 
+            			 
                 		<li>
                     	<span class="function01" id="NZWJXFL">农作物分类与面积统计</span>
                     </li>
@@ -219,7 +219,7 @@
                     <li>
                     	<span class="function06" id="NZWGC">农作物估产</span>
                     </li>
-                    -->
+                    
                 </ul>
             </div>
         </div>
